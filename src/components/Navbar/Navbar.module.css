@@ -1,8 +1,14 @@
 .nav {
     grid-area: n;
     background-color: #dbdcdc;
+    padding: 10px;
 }
 
-.item {
-    color: azure;
+.item a {
+    color: black;
+    text-decoration:none;
+}
+
+.item a.active{
+    color: #e57241;
 }
