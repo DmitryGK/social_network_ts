@@ -4,13 +4,14 @@ import pic from '../../pictures/wp.jpg'
 import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
-    return (<div className={p.content}>
-        <div><img className={p.image} src={pic} alt={pic}/></div>
+    return (
         <div>
-            Ava + description
-        </div>
-        <MyPosts />
-    </div>)
+            <div><img className={p.image} src={pic} alt={pic}/></div>
+            <div>
+                Ava + description
+            </div>
+            <MyPosts/>
+        </div>)
 }
 
 export default Profile
