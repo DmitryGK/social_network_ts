@@ -4,10 +4,3 @@
     background-size: 400px auto;
 }
 
-.image {
-    height: 400px;
-    width: 1000px;
-    object-fit: cover;
-    object-position: center;
-
-}

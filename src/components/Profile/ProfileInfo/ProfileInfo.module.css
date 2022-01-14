@@ -1,0 +1,11 @@
+.image {
+    height: 400px;
+    width: 1000px;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.profileInfo {
+    padding: 10px;
+}
