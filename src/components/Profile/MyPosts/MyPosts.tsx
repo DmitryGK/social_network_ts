@@ -8,15 +8,18 @@ const MyPosts = () => {
             <h3>My posts</h3>
             <div >
                 <div>
-                    <textarea/>
+                    <textarea className={m.textarea}/>
                 </div>
-                <div>
-                    <button>Add post</button>
-                    <button>Remove</button>
+                <div className={m.buttons}>
+                    <button className={m.addButton}>Add post</button>
+                    <button className={m.removeButton}>Remove</button>
                 </div>
                 <div >
                     <Post message='Hi, how are you?' likecount='20'/>
-                    <Post message=' It is my first post' likecount='15'/>
+                    <Post message='It is my first post' likecount='15'/>
+                    <Post message='Yo' likecount='1'/>
+                    <Post message='Yp YO' likecount='10'/>
+                    <Post message='....' likecount='23'/>
 
                 </div>
             </div>

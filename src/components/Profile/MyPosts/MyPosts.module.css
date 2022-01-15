@@ -1,3 +1,35 @@
 .postsBlock {
     padding: 10px;
 }
+
+.buttons {
+    margin-top: 8px;
+}
+
+.addButton {
+    block-size: 25px;
+    color: #dbdcdc;
+    background-color: #4d4d4d;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #4d4d4d;
+    margin-left: 2px;
+}
+
+.removeButton {
+    block-size: 25px;
+    color: #dbdcdc;
+    background-color: #4d4d4d;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #4d4d4d;
+    margin-left: 8px;
+
+}
+
+.textarea {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #8b8b8d;
+}

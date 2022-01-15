@@ -6,10 +6,12 @@ type PostType = {
     likecount: string
 }
 
-const Post = (props:PostType) => {
+const Post = (props: PostType) => {
     return (
         <div className={p.item}>
-            <img src={ava1} alt={ava1}/>
+            <div>
+                <img src={ava1} alt={ava1}/>
+            </div>
             {props.message}
             <div>
                 <span>like {props.likecount}</span>
