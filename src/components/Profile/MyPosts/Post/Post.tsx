@@ -3,7 +3,7 @@ import ava1 from '../../../../pictures/ava1.jpg'
 
 type PostType = {
     message: string
-    likecount: string
+    likesCount: number
 }
 
 const Post = (props: PostType) => {
@@ -14,7 +14,7 @@ const Post = (props: PostType) => {
             </div>
             {props.message}
             <div>
-                <span>like {props.likecount}</span>
+                <span>like {props.likesCount}</span>
             </div>
         </div>
     )
