@@ -1,7 +1,8 @@
 import p from './Post.module.css'
 import ava1 from '../../../../pictures/ava1.jpg'
 
-type PostType = {
+export type PostType = {
+    id?:number
     message: string
     likesCount: number
 }
