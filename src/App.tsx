@@ -12,10 +12,12 @@ import {Settings} from "./components/Settings/Settings";
 import {RootStateType} from "./Redux/State";
 
 
-type AppPropsType = {
-    state:RootStateType
-}
 
+type AppPropsType = {
+    state: RootStateType
+    addPost: (postText: string) => void
+    addMessage: (messageText: string) => void
+}
 
 function App(props:AppPropsType) {
     return (
@@ -25,8 +27,11 @@ function App(props:AppPropsType) {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path='/profile' element= {<Profile postsData={props.state.profilePage.postsData}/>}/>
-                        <Route path='/dialogs/*' element={<Dialogs dialogsData={props.state.dialogsPage}/>}/>
+                        <Route path='/profile' element= {<Profile postsData={props.state.profilePage.postsData}
+                                                                  addPost={props.addPost}/>}/>
+                        <Route path='/dialogs/*' element={<Dialogs dialogsData={props.state.dialogsPage}
+                                                                   addMessage={props.addMessage}
+                        />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>

@@ -14,3 +14,21 @@
 }
 
 .message{}
+
+.sendButton {
+    block-size: 25px;
+    color: #dbdcdc;
+    background-color: #4d4d4d;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #4d4d4d;
+    margin-left: 2px;
+}
+
+.textarea {
+    margin-top: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #8b8b8d;
+}
