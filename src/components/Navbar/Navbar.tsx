@@ -1,6 +1,7 @@
 import React from "react";
 import n from './Navbar.module.css'
 import {NavLink,} from 'react-router-dom'
+import Friends from "../Friends/Friends";
 
 type isActiveType = {
     isActive: boolean
@@ -25,6 +26,10 @@ const Navbar = () => {
             </div>
             <div className={n.item}>
                 <NavLink to='/settings' className={setActive}>Settings</NavLink>
+            </div>
+
+            <div>
+                <Friends/>
             </div>
 
 

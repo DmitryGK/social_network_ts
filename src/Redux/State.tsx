@@ -15,7 +15,7 @@ export type DialogsPageType = {
     dialogsData: Array<DialogsDataType>
     messagesData: Array<MessagesDataType>
 }
-type SidebarType ={}
+type SidebarType =Array<{id:number, name:string}>
 export type ProfilePageType = {
     postsData: Array<PostsDataType>
 }
@@ -52,7 +52,11 @@ let state: RootStateType = {
             {id: 4, message: 'Happy new year!'},
         ]
     },
-    sidebar:{}
+    sidebar:[
+        {id:1, name:'user1'},
+        {id:2, name:'user2'},
+        {id:3, name:'user3'}
+    ]
 }
 
 
