@@ -14,15 +14,33 @@
 }
 
 .message{}
-
+.sendButton{
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    /*box-shadow: 0 4px 15px 0 rgb(49 196 190 / 75%);*/
+}
 .sendButton {
     block-size: 25px;
-    color: #dbdcdc;
+    color: #ffffff;
     background-color: #4d4d4d;
-    border-style: solid;
+    /*border-style: solid;*/
     border-radius: 10px;
-    border-color: #4d4d4d;
+    /*border-color: #4d4d4d;*/
     margin-left: 2px;
+    /*width: 65px;*/
+    /*font-size: 10px;*/
+    /*font-weight: 600;*/
+    /*color: #fff;*/
+    /*cursor: pointer;*/
+    /*margin: 5px;*/
+    /*height: 25px;*/
+    /*text-align: center;*/
+    border: none;
+    /*background-size: 300% 100%;*/
+    /*border-radius: 50px;*/
+    /*moz-transition: all .4s ease-in-out;*/
+    /*-o-transition: all .4s ease-in-out;*/
+    /*-webkit-transition: all .4s ease-in-out;*/
+    /*transition: all .4s ease-in-out;*/
 }
 
 .textarea {
