@@ -9,17 +9,18 @@ import Profile from "./components/Profile/Profile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {RootStateType} from "./Redux/State";
-
+import {RootStateType, updateNewMessageText} from "./Redux/State";
 
 
 type AppPropsType = {
     state: RootStateType
     addPost: (postText: string) => void
     addMessage: (messageText: string) => void
+    updateNewPostText: (newPostText: string) => void
+    updateNewMessageText: (newMessageText: string) => void
 }
 
-function App(props:AppPropsType) {
+function App(props: AppPropsType) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -27,10 +28,15 @@ function App(props:AppPropsType) {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path='/profile' element= {<Profile postsData={props.state.profilePage.postsData}
-                                                                  addPost={props.addPost}/>}/>
+                        <Route path='/profile' element={<Profile postsData={props.state.profilePage.postsData}
+                                                                 newPostText={props.state.profilePage.newPostText}
+                                                                 addPost={props.addPost}
+                                                                 updateNewPostText={props.updateNewPostText}
+                        />}
+                        />
                         <Route path='/dialogs/*' element={<Dialogs dialogsData={props.state.dialogsPage}
                                                                    addMessage={props.addMessage}
+                                                                   updateNewMessageText={updateNewMessageText}
                         />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>

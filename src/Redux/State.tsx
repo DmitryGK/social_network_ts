@@ -9,27 +9,30 @@ export type DialogsDataType = {
     name: string
 }
 export type PostsDataType = {
-    id:number
+    id: number
     message: string
     likesCount: number
 }
 export type DialogsPageType = {
+    newMessageText: string
     dialogsData: Array<DialogsDataType>
     messagesData: Array<MessagesDataType>
 }
-type SidebarType =Array<{id:number, name:string}>
+type SidebarType = Array<{ id: number, name: string }>
 export type ProfilePageType = {
     postsData: Array<PostsDataType>
+    newPostText: string
 }
 export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
-    sidebar:SidebarType
+    sidebar: SidebarType
 }
 
 
 let state: RootStateType = {
     profilePage: {
+        newPostText: '',
         postsData: [
             {id: 1, message: 'Hi, how are you?', likesCount: 20},
             {id: 2, message: 'First try', likesCount: 15},
@@ -39,6 +42,7 @@ let state: RootStateType = {
         ]
     },
     dialogsPage: {
+        newMessageText: '',
         dialogsData: [
             {id: 1, name: 'Svetlana'},
             {id: 2, name: 'Dmitry'},
@@ -54,31 +58,42 @@ let state: RootStateType = {
             {id: 4, message: 'Happy new year!'},
         ]
     },
-    sidebar:[
-        {id:1, name:'user1'},
-        {id:2, name:'user2'},
-        {id:3, name:'user3'}
+    sidebar: [
+        {id: 1, name: 'user1'},
+        {id: 2, name: 'user2'},
+        {id: 3, name: 'user3'}
     ]
 }
 
+
 export const addPost = (postText: string) => {
 
-    const newPost:PostsDataType = {
+    const newPost: PostsDataType = {
         id: 5,
-        message: postText,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
 
     state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
     rerenderEntireTree(state)
 }
 
 export const addMessage = (messageText: string) => {
     const newMessage: MessagesDataType = {
         id: 5,
-        message: messageText
+        message: state.dialogsPage.newMessageText
     }
     state.dialogsPage.messagesData.push(newMessage)
+    rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+export const updateNewMessageText = (newText: string) => {
+    state.dialogsPage.newMessageText = newText
     rerenderEntireTree(state)
 }
 

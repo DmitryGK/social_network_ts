@@ -8,21 +8,29 @@ import {DialogsPageType} from "../../Redux/State";
 type DialogsPropsType = {
     dialogsData: DialogsPageType
     addMessage: (messageText: string) => void
+    updateNewMessageText: (newMessageText: string) => void
 }
 
-export const Dialogs = (props:DialogsPropsType) => {
+export const Dialogs = (props: DialogsPropsType) => {
 
 
-    let newMessageText = React.createRef<HTMLTextAreaElement>()
+    const newMessageText = React.createRef<HTMLTextAreaElement>()
     const sendMessage = () => {
-        if(newMessageText.current){
+        if (newMessageText.current) {
             props.addMessage(newMessageText.current.value)
             newMessageText.current.value = ''
         }
+
     }
 
-    let messagesElements = props.dialogsData.messagesData.map(message => <Message message={message.message}/>)
-    let dialogsElements = props.dialogsData.dialogsData.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
+    const onMessageChange = () => {
+        if (newMessageText.current) {
+            props.updateNewMessageText(newMessageText.current.value)
+        }
+    }
+
+    const messagesElements = props.dialogsData.messagesData.map(message => <Message message={message.message}/>)
+    const dialogsElements = props.dialogsData.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
 
     return (
         <div className={d.dialogs}>
@@ -31,7 +39,9 @@ export const Dialogs = (props:DialogsPropsType) => {
             </div>
             <div className={d.messagesItems}>
                 {messagesElements}
-                <textarea className={d.textarea} ref={newMessageText}/>
+                <textarea className={d.textarea}
+                          ref={newMessageText}
+                          onChange={onMessageChange}/>
                 <div>
                     <button className={d.sendButton} onClick={sendMessage}>Send</button>
                 </div>
