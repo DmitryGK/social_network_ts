@@ -9,7 +9,8 @@ import Profile from "./components/Profile/Profile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {RootStateType, updateNewMessageText} from "./Redux/State";
+import store, {RootStateType, StoreType} from "./Redux/State";
+
 
 
 type AppPropsType = {
@@ -20,7 +21,10 @@ type AppPropsType = {
     updateNewMessageText: (newMessageText: string) => void
 }
 
-function App(props: AppPropsType) {
+
+const App = (props: AppPropsType) => {
+
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -36,7 +40,7 @@ function App(props: AppPropsType) {
                         />
                         <Route path='/dialogs/*' element={<Dialogs dialogsData={props.state.dialogsPage}
                                                                    addMessage={props.addMessage}
-                                                                   updateNewMessageText={updateNewMessageText}
+                                                                   updateNewMessageText={props.updateNewMessageText}
                         />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
