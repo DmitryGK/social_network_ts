@@ -9,16 +9,13 @@ import Profile from "./components/Profile/Profile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import store, {RootStateType, StoreType} from "./Redux/State";
+import {ActionsTypes, RootStateType} from "./Redux/State";
 
 
 
 type AppPropsType = {
     state: RootStateType
-    addPost: (postText: string) => void
-    addMessage: (messageText: string) => void
-    updateNewPostText: (newPostText: string) => void
-    updateNewMessageText: (newMessageText: string) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
 
@@ -33,14 +30,12 @@ const App = (props: AppPropsType) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='/profile' element={<Profile postsData={props.state.profilePage.postsData}
-                                                                 newPostText={props.state.profilePage.newPostText}
-                                                                 addPost={props.addPost}
-                                                                 updateNewPostText={props.updateNewPostText}
+                                                                 dispatch={props.dispatch.bind(props.state)}
+
                         />}
                         />
                         <Route path='/dialogs/*' element={<Dialogs dialogsData={props.state.dialogsPage}
-                                                                   addMessage={props.addMessage}
-                                                                   updateNewMessageText={props.updateNewMessageText}
+                                                                   dispatch={props.dispatch}
                         />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
