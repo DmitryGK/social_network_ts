@@ -126,6 +126,32 @@ const store:StoreType = {
 }
 
 
+export const addPostActionCreator = ():AddPostActionType => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+
+export const updateNewPostTextActionCreator = (newPostText: string):UpdateNewPostTextActionType => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newText: newPostText
+    }
+}
+
+export const addMessageActionCreator = (): AddMessageActionType => {
+    return {
+        type: 'ADD-MESSAGE'
+    }
+}
+
+export const updateNewMessageTextActionCreator = (newMessageText: string):UpdateNewMessageTextActionType => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT',
+        newText: newMessageText
+    }
+}
+
 
 export default store
 
