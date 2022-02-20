@@ -1,5 +1,5 @@
 import './index.css';
-import store from "./Redux/State";
+import store from "./Redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -19,11 +19,13 @@ export const rerenderEntireTree = () => {
 }
 
 rerenderEntireTree()
-store.subscribe(rerenderEntireTree)
+store.subscribe(() => {
+        let state = store.getState()
+        rerenderEntireTree(state)
+    }
+)
 
 reportWebVitals();
-
-
 
 
 // If you want to start measuring performance in your app, pass a function
