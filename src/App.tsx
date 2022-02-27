@@ -11,12 +11,9 @@ import {Settings} from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
-type AppPropsType = {
-
-}
 
 
-const App = (props: AppPropsType) => {
+const App = () => {
 
 
     return (

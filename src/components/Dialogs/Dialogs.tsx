@@ -10,8 +10,7 @@ type DialogsPropsType = {
     updateNewMessageText: (newText: string) => void
     addMessageAction: () => void
 }
-
-export const Dialogs = (props: DialogsPropsType) => {
+ const Dialogs = (props: DialogsPropsType) => {
 
 
     const newMessageText = React.createRef<HTMLTextAreaElement>()
@@ -50,4 +49,5 @@ export const Dialogs = (props: DialogsPropsType) => {
         </div>
     )
 }
+export default Dialogs
 
