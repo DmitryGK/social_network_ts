@@ -12,7 +12,8 @@ type mapStateToPropsType = {
 
 const mapStateToProps = (state: AppStateType) => {
     return {
-        postsData: state.profilePage.postsData
+        postsData: state.profilePage.postsData,
+        newPostText: state.profilePage.newPostText
     }
 }
 const mapDispatchToProps = (dispatch: Dispatch): mapStateToPropsType => {
