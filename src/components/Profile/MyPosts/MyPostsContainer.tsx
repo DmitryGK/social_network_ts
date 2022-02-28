@@ -5,7 +5,6 @@ import {Dispatch} from "redux";
 import MyPosts from "./MyPosts";
 
 
-
 type mapStateToPropsType = {
     updateNewPostText: (newText: string) => void
     addPost: () => void
