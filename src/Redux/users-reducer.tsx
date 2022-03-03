@@ -2,31 +2,41 @@ const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
 
-type InitialStateType = {
-    usersData: Array<UsersDataType>
+export type InitialStateType = {
+    usersData: Array<UserDataType>
+}
+type UsersReducerActionType = FollowActionType | UnfollowActionType | SetUsersActionType
+
+type FollowActionType = {
+    type: 'FOLLOW'
+    userId: number
+}
+type UnfollowActionType = {
+    type: "UNFOLLOW"
+    userId: number
+}
+type SetUsersActionType = {
+    type: 'SET-USERS'
+    usersData: Array<UserDataType>
 }
 type LocationType = {
     city: string
     country: string
 }
-export type UsersDataType = {
+export type UserDataType = {
     id: number
+    avatar: string
     followed: boolean
     fullName: string
     status: string
     location: LocationType
 }
 const initialState = {
-    usersData: [
-        {id: 1, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'} },
-        {id: 2, followed: true, fullName: 'Alexander', status: 'I am a boss too', location: {city: 'Moscow', country: 'Russia'} },
-        {id: 3, followed: true, fullName: 'Svetlana', status: 'I am a boss too', location: {city: 'Kiev', country: 'Ukraine'} },
-        {id: 4, followed: false, fullName: 'Oleg', status: 'I am a boss too', location: {city: 'LA', country: 'USA'} },
-
-    ]
+    usersData: []
 }
 
-const usersReducer = (state: InitialStateType = initialState, action) => {
+
+const usersReducer = (state: InitialStateType = initialState, action: UsersReducerActionType): InitialStateType => {
 
     switch (action.type) {
         case FOLLOW: {
@@ -62,5 +72,5 @@ const usersReducer = (state: InitialStateType = initialState, action) => {
 
 export const followAC = (userId: number) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users: Array<UsersDataType>)=> ({type: SET_USERS, users})
+export const setUsersAC = (users: Array<UserDataType>)=> ({type: SET_USERS, users})
 export default usersReducer
