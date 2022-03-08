@@ -6,7 +6,7 @@ import {AppStateType} from "../../Redux/redux-store";
 
 
 type MapStateToPropsType = {
-    usersPage: InitialStateType
+    usersPage: Array<UserDataType>
 }
 type MapDispatchToPropsType = {
     follow: (userId: number) => void
@@ -18,7 +18,7 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 const mapStateToProps = (state: AppStateType):MapStateToPropsType => {
     return {
-        usersPage: state.usersPage
+        usersPage: state.usersPage.usersData
     }
 }
 
