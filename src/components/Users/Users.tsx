@@ -8,14 +8,12 @@ import s from './Users.module.css'
 
 class Users extends React.Component<UsersPropsType, UserDataType> {
 
-    constructor(props: UsersPropsType) {
-        super(props);
+
+    componentDidMount() {
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then((response: { data: { items: UserDataType[]; }; }) => {
             this.props.setUsers(response.data.items)
         })
-
     }
-
 
     render() {
         return <div className={s.users}>
@@ -52,7 +50,6 @@ class Users extends React.Component<UsersPropsType, UserDataType> {
         </div>
 
     }
-
 
 }
 
