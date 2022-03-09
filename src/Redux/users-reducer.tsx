@@ -3,7 +3,7 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
 
 export type InitialStateType = {
-    usersData: Array<UserDataType>
+    users: Array<UserDataType>
 }
 type UsersReducerActionType = FollowActionType | UnfollowActionType | SetUsersActionType
 
@@ -17,7 +17,7 @@ type UnfollowActionType = {
 }
 type SetUsersActionType = {
     type: 'SET-USERS'
-    usersData: Array<UserDataType>
+    users: Array<UserDataType>
 }
 type LocationType = {
     city: string
@@ -32,7 +32,7 @@ export type UserDataType = {
     location: LocationType
 }
 const initialState = {
-    usersData: []
+    users: []
 }
 
 
@@ -42,7 +42,7 @@ const usersReducer = (state: InitialStateType = initialState, action: UsersReduc
         case FOLLOW: {
             return {
                 ...state,
-                usersData: state.usersData.map( u => {
+                users: state.users.map( u => {
                     if (u.id === action.userId) {
                         return{...u, followed: true}
                     }
@@ -53,7 +53,7 @@ const usersReducer = (state: InitialStateType = initialState, action: UsersReduc
         case UNFOLLOW: {
             return {
                 ...state,
-                usersData: state.usersData.map( u => {
+                users: state.users.map( u => {
                     if (u.id === action.userId) {
                         return{...u, followed: false}
                     }
@@ -62,7 +62,7 @@ const usersReducer = (state: InitialStateType = initialState, action: UsersReduc
             }
         }
         case SET_USERS : {
-            return {...state, usersData: [...state.usersData, ...action.usersData]}
+            return {...state, users: [...state.users, ...action.users]}
         }
         default :
             return state
