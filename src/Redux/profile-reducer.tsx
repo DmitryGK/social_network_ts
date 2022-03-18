@@ -1,14 +1,37 @@
-import {ActionsTypes, AddPostActionType, PostsDataType, ProfilePageType, UpdateNewPostTextActionType} from "./store";
+import { PostsDataType } from "./store";
+
+type AddPostActionType = {
+    type: 'ADD-POST'
+}
+
+type UpdateNewPostTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newText: string
+}
+
+type SetUserProfileActionType = {
+    type: 'SET_USER_PROFILE'
+    profile: ProfilePageType
+}
+
+type ActionsTypes = AddPostActionType | UpdateNewPostTextActionType | SetUserProfileActionType
+
+
+type ProfilePageType = {
+    postsData: Array<PostsDataType>
+    newPostText: string
+}
 
 const initialState = {
     newPostText: '',
     postsData: [
-        {id: 1, message: 'Hi, how are you?', likesCount: 20},
-        {id: 2, message: 'First try', likesCount: 15},
-        {id: 3, message: 'Yo', likesCount: 1},
-        {id: 4, message: 'Solo', likesCount: 10},
-        {id: 5, message: '....', likesCount: 35}
-    ]
+        { id: 1, message: 'Hi, how are you?', likesCount: 20 },
+        { id: 2, message: 'First try', likesCount: 15 },
+        { id: 3, message: 'Yo', likesCount: 1 },
+        { id: 4, message: 'Solo', likesCount: 10 },
+        { id: 5, message: '....', likesCount: 35 }
+    ],
+    profile: null
 }
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes) => {
@@ -33,7 +56,12 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionsTy
                 newPostText: action.newText
             }
         }
-        default :
+        case 'SET_USER_PROFILE': {
+            return {
+                ...state, profile: action.profile
+            }
+        }
+        default:
             return state
     }
 }
@@ -48,6 +76,11 @@ export const updateNewPostTextActionCreator = (newPostText: string): UpdateNewPo
     return {
         type: 'UPDATE-NEW-POST-TEXT',
         newText: newPostText
+    }
+}
+export const setUserProfile = (profile: ProfilePageType): SetUserProfileActionType => {
+    return {
+        type: 'SET_USER_PROFILE', profile
     }
 }
 export default profileReducer
