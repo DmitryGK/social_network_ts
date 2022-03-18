@@ -11,15 +11,40 @@ type UpdateNewPostTextActionType = {
 
 type SetUserProfileActionType = {
     type: 'SET_USER_PROFILE'
-    profile: ProfilePageType
+    profile: ProfileType
 }
 
 type ActionsTypes = AddPostActionType | UpdateNewPostTextActionType | SetUserProfileActionType
 
+type ContactsType = {
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+}
+type PhotosType = {
+    small: string
+    large: string
+}
 
-type ProfilePageType = {
+export type ProfileType = {
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: ContactsType
+    photos: PhotosType
+}
+
+
+type InitialStateType = {
     postsData: Array<PostsDataType>
     newPostText: string
+    profile: ProfileType
 }
 
 const initialState = {
@@ -31,10 +56,10 @@ const initialState = {
         { id: 4, message: 'Solo', likesCount: 10 },
         { id: 5, message: '....', likesCount: 35 }
     ],
-    profile: null
+    profile:
 }
 
-const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes) => {
+const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
 
     switch (action.type) {
 
@@ -78,7 +103,7 @@ export const updateNewPostTextActionCreator = (newPostText: string): UpdateNewPo
         newText: newPostText
     }
 }
-export const setUserProfile = (profile: ProfilePageType): SetUserProfileActionType => {
+export const setUserProfile = (profile: ProfileType)=> {
     return {
         type: 'SET_USER_PROFILE', profile
     }
