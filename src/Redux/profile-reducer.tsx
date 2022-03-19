@@ -61,7 +61,7 @@ const initialState = {
         { id: 4, message: 'Solo', likesCount: 10 },
         { id: 5, message: '....', likesCount: 35 }
     ],
-    profile: ()
+    profile: null
 }
 
 const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
