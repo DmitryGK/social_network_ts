@@ -1,9 +1,12 @@
 import m from './MyPosts.module.css'
 import Post from "./Post/Post";
-import {PostsDataType} from "../../../Redux/store";
 import React from "react";
 
-
+export type PostsDataType = {
+         id: number
+         message: string
+         likesCount: number
+     }
 
 
 

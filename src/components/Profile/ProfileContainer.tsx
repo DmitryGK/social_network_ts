@@ -31,11 +31,10 @@ class ProfileContainer extends React.Component<ProfilePropsType> {
         )
 }
 
+
+}
 const mapStateToProps = (state: AppStateType) => ({
     profile: state.profilePage.profile
 })
-}
 
-export default connect(mapStateToProps,{
-    setUserProfile
-})(ProfileContainer)
+export default connect(mapStateToProps,{ setUserProfile })(ProfileContainer)

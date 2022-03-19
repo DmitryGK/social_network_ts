@@ -1,8 +1,13 @@
-import { PostsDataType } from "./store";
+
 
 type AddPostActionType = {
     type: 'ADD-POST'
 }
+export type PostsDataType = {
+        id: number
+         message: string
+         likesCount: number
+     }
 
 type UpdateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
@@ -56,7 +61,7 @@ const initialState = {
         { id: 4, message: 'Solo', likesCount: 10 },
         { id: 5, message: '....', likesCount: 35 }
     ],
-    profile:
+    profile: 
 }
 
 const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {

@@ -1,5 +1,8 @@
-import {ActionsTypes, SidebarType} from "./store";
 
+type ActionsType = {
+
+}
+export type SidebarType = Array<{ id: number, name: string }>
 
 const initialState = [
     {id: 1, name: 'user1'},
@@ -7,7 +10,7 @@ const initialState = [
     {id: 3, name: 'user3'}
 ]
 
-const sidebarReducer = (state: SidebarType = initialState, action: ActionsTypes) => {
+const sidebarReducer = (state: SidebarType = initialState, action: ActionsType) => {
 
     return state
 }
