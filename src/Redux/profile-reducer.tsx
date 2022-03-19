@@ -52,7 +52,7 @@ type InitialStateType = {
     profile: ProfileType
 }
 
-const initialState = {
+const initialState = { 
     newPostText: '',
     postsData: [
         { id: 1, message: 'Hi, how are you?', likesCount: 20 },
@@ -61,7 +61,7 @@ const initialState = {
         { id: 4, message: 'Solo', likesCount: 10 },
         { id: 5, message: '....', likesCount: 35 }
     ],
-    profile: 
+    profile: ()
 }
 
 const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
