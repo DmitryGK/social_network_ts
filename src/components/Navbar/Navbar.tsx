@@ -13,22 +13,22 @@ const Navbar = () => {
     return (
         <nav className={n.nav}>
             <div className={n.item}>
-                <NavLink to='/profile' className={setActive}>Profile</NavLink>
+                <NavLink to='/profile' activeClassName={n.active}>Profile</NavLink>
             </div>
             <div className={n.item}>
-                <NavLink to='/dialogs' className={setActive}>Messages</NavLink>
+                <NavLink to='/dialogs' activeClassName={n.active}>Messages</NavLink>
             </div>
             <div className={n.item}>
-                <NavLink to='/news' className={setActive}>News</NavLink>
+                <NavLink to='/news' activeClassName={n.active}>News</NavLink>
             </div>
             <div className={n.item}>
-                <NavLink to='/music' className={setActive}>Music</NavLink>
+                <NavLink to='/music' activeClassName={n.active}>Music</NavLink>
             </div>
             <div className={n.item}>
-                <NavLink to='/settings' className={setActive}>Settings</NavLink>
+                <NavLink to='/settings' activeClassName={n.active}>Settings</NavLink>
             </div>
             <div className={n.item}>
-                <NavLink to='/users' className={setActive}>Users</NavLink>
+                <NavLink to='/users' activeClassName={n.active}>Users</NavLink>
             </div>
 
             <div>
