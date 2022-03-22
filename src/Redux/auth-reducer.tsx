@@ -1,51 +1,53 @@
 const SET_USER_DATA = 'SET_USER_DATA'
 
-export type DataType =  {
+export type DataType = {
     id: number
     email: string
     login: string
+    isAuth: boolean
 
 }
 
-export type AuthType = {
-    data: DataType
-    resultCode: number
-    messages: Array<string>
-}
+// export type AuthType = {
+//     data: DataType
+//     resultCode: number
+//     messages: Array<string>
+// }
 
-type InitialStateType = {
+export type InitialStateType = {
     id: number
     email: string
     login: string
+    isAuth: boolean
 }
 type setUsersActionType = {
     type: 'SET_USER_DATA'
-    data: InitialStateType
-} 
+    data: DataType
+}
 
-const InitialState: AuthType = {
-   data: {
-       id: null,
-       email: null,
-       login: null
-   },
-   resultCode: null,
-   messages: null
+const InitialState: InitialStateType = {
+    id: 1,
+    email: '',
+    login: '',
+    isAuth: false
 }
 
 type ActionType = setUsersActionType
 
-const authReducer = (state: AuthType = InitialState, action: ActionType): InitialStateType => {
+const authReducer = (state: InitialStateType = InitialState, action: ActionType): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data
+                ...action.data,
+                isAuth: true
             }
+        default:
+            return state
     }
 }
 
-export const setUserData = (id: number, email: string, login: string) => ({type: SET_USER_DATA, data : {id, email, login}})
+export const setUserData = (id: number, email: string, login: string) => ({ type: SET_USER_DATA, data: { id, email, login } })
 
 
 export default authReducer
