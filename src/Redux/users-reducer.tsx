@@ -6,7 +6,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 export type InitialStateType = {
-    users: Array<UserDataType>
+    users: Array<UserDataType> 
     pageSize: number
     totalUsersCount: number
     currentPage: number
