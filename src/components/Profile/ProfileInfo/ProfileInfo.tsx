@@ -3,7 +3,7 @@ import pic from "../../../pictures/richard-horvath-RAZU_R66vUc-unsplash.jpg";
 import React from "react";
 import { ProfileType } from "../../../Redux/profile-reducer";
 import Preloader from "../../common/Preloader/Preloader";
-import { profile } from "console";
+
 
 
 type ProfileInfoPropsType = {
@@ -19,14 +19,16 @@ const ProfileInfo = (props: ProfileInfoPropsType) => {
             <div>
                 <div><img className={p.image} src={pic} alt={pic} /></div>
                 <div className={p.profileInfo}>
-
-                    <img src={props.profile.photos.large} />
-
+                    <div>
+                        <img src={props.profile.photos.large} className={p.ava} />
+                    </div>
                     <div className={p.name}>
                         {props.profile.fullName}
                     </div>
-                    {props.profile.lookingForAJobDescription}
-
+                    <div className={p.description}>
+                        <div>{props.profile.lookingForAJobDescription}</div>
+                        <div>{props.profile.contacts.mainLink}</div>
+                    </div>
                 </div>
             </div>
         )

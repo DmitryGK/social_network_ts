@@ -4,10 +4,10 @@ type AddPostActionType = {
     type: 'ADD-POST'
 }
 export type PostsDataType = {
-        id: number
-         message: string
-         likesCount: number
-     }
+    id: number
+    message: string
+    likesCount: number
+}
 
 type UpdateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
@@ -52,7 +52,7 @@ type InitialStateType = {
     profile: ProfileType
 }
 
-const initialState = { 
+const initialState = {
     newPostText: '',
     postsData: [
         { id: 1, message: 'Hi, how are you?', likesCount: 20 },
@@ -61,7 +61,26 @@ const initialState = {
         { id: 4, message: 'Solo', likesCount: 10 },
         { id: 5, message: '....', likesCount: 35 }
     ],
-    profile: null
+    profile: {
+        userId: 1,
+        lookingForAJob: false,
+        lookingForAJobDescription: '',
+        fullName: '',
+        contacts: {
+            github: '',
+            vk: '',
+            facebook: '',
+            instagram: '',
+            twitter: '',
+            website: '',
+            youtube: '',
+            mainLink: '',
+        },
+        photos: {
+            small: '',
+            large: ''
+        }
+    }
 }
 
 const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
@@ -108,7 +127,7 @@ export const updateNewPostTextActionCreator = (newPostText: string): UpdateNewPo
         newText: newPostText
     }
 }
-export const setUserProfile = (profile: ProfileType)=> {
+export const setUserProfile = (profile: ProfileType) => {
     return {
         type: 'SET_USER_PROFILE', profile
     }

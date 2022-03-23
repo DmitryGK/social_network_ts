@@ -7,11 +7,29 @@
 }
 
 .profileInfo {
+    width: 30%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .name {
     font-size: 30px;
     font-weight: bold;
-    color: #4d4d4d;
+    color: #e4640fcb;
+}
+
+.ava {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    border: 1px solid rgba(22, 21, 21, 0.438)
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
 }

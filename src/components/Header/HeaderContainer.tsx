@@ -1,16 +1,19 @@
 import axios from "axios";
 import { connect } from "react-redux";
-import { DataType, InitialStateType, setUserData } from "../../Redux/auth-reducer";
+import { DataType, setUserData } from "../../Redux/auth-reducer";
 import Header from "./Header";
 import React from 'react';
-import { AppStateType } from "../../Redux/redux-store";
+import store, { AppStateType } from "../../Redux/redux-store";
 
 
 
 type MapStateToPropsType = {
     data: DataType
-    resultCode: number
-    messages: Array<string>
+    isAuth: boolean
+    login: string
+    email: string
+    // resultCode: number
+    // messages: Array<string>
 }
 
 
@@ -35,8 +38,12 @@ class HeaderContainer extends React.Component<PropsType, DataType> {
                         email: string,
                         login: string
                     },
+                    isAuth: boolean,
                     resultCode: number,
-                    messages: Array<string>
+                    messages: Array<string>,
+                    login: string,
+                    id: number,
+                    email: string
                 }
             }) => {
                 if (response.data.resultCode === 0) {
@@ -52,8 +59,10 @@ class HeaderContainer extends React.Component<PropsType, DataType> {
     }
 }
 
-const mapStateToProps = (state: AppStateType) => ({
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
+    data: state.auth.data,
     isAuth: state.auth.isAuth,
-    login: state.auth.login
+    login: state.auth.login,
+    email: state.auth.email
 })
 export default connect(mapStateToProps, { setUserData })(HeaderContainer)
