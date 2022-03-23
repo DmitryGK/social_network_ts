@@ -37,7 +37,7 @@ export const Users = (props: UsersPropsType) => {
             })}
         </div>
         {
-            props.usersPage.map(u => <div key={u.id}>
+            props.usersPage.map(u => <div key={u.id} className={s.userModule}>
                 <span>
                     <div>
                         <NavLink to={'/profile/' + u.id}>
@@ -47,7 +47,7 @@ export const Users = (props: UsersPropsType) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button disabled={props.followingInProgress.some( id => id === u.id)} onClick={() => {
+                            ? <button disabled={props.followingInProgress.some( id => id === u.id)} className={s.button} onClick={() => {
                                 props.toggleFollowingProgress(true, u.id)
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                     withCredentials: true,
@@ -65,7 +65,7 @@ export const Users = (props: UsersPropsType) => {
                                
 
                             }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some( id => id === u.id)} onClick={() => {
+                            : <button disabled={props.followingInProgress.some( id => id === u.id)} className={s.button} onClick={() => {
                                 props.toggleFollowingProgress(true, u.id)
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                     withCredentials: true,
@@ -91,8 +91,7 @@ export const Users = (props: UsersPropsType) => {
                     <div>{u.status}</div>
                 </span>
                 <span>
-                    <div>{'u.location.country'}</div>
-                    <div>{'u.location.city'}</div>
+                    
                 </span>
             </div>)
 
