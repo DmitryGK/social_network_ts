@@ -12,13 +12,18 @@
 }
 
 .button {
-    block-size: 25px;
+    text-decoration: none;
     color: #dbdcdc;
     background-color: #4d4d4d;
     border-style: solid;
     border-radius: 10px;
     border-color: #4d4d4d;
     margin-left: 2px;
+    cursor: pointer
+}
+.button:active {
+    position: relative;
+    top: 1px;
 }
 .userModule {
     display: flex;
