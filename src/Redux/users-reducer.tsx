@@ -1,3 +1,6 @@
+import { userAPI } from "../api/api"
+import { DispatchType } from "./redux-store"
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
@@ -129,4 +132,19 @@ export const setCurrentPage = (currentPage: number) => ({ type: SET_CURRENT_PAGE
 export const setTotalUsersCount = (totalUsersCount: number) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount })
 export const toggleIsFetching = (isFetching: boolean) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleFollowingProgress = (followInformationIsLoading: boolean, userId: number) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, followInformationIsLoading, userId })
-export default usersReducer
+
+export const getUserThunkCreator = (currentPage: number, pageSize: number) => {
+
+    return (dispatch:DispatchType) => {
+
+    dispatch(toggleIsFetching(true))
+        userAPI.getUser(currentPage, pageSize)
+            .then((data: { items: UserDataType[], totalCount: number }) => {
+                dispatch(setUsers(data.items))
+                dispatch(setTotalUsersCount(data.totalCount))
+                dispatch(toggleIsFetching(false))
+            })
+        }
+} 
+
+export default usersReducer 
