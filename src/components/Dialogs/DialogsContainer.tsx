@@ -12,7 +12,8 @@ type mapDispatchToPropsType = {
 
 const mapStateToProps = (state: AppStateType) => {
     return {
-        dialogsData: state.dialogsPage
+        dialogsData: state.dialogsPage,
+        isAuth: state.auth.isAuth
     }
 }
 

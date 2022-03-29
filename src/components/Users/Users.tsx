@@ -3,8 +3,7 @@ import { UserDataType } from '../../Redux/users-reducer'
 import s from './Users.module.css'
 import userPhoto from './../../pictures/avatars/_Ninja-2-512.webp'
 import { NavLink } from 'react-router-dom'
-import axios from 'axios'
-import { userAPI } from '../../api/api'
+
 
 type UsersPropsType = {
     totalUsersCount: number

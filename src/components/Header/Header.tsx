@@ -7,7 +7,6 @@ import h from './Header.module.css'
 
 type HeaderPropsType = {
     data: DataType
-    setUserData: (id: number, email: string, login: string) => void
     isAuth: boolean
     email: string
     login: string
