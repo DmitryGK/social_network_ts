@@ -17,10 +17,9 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <HeaderContainer/>
-                <Navbar /> 
+                <HeaderContainer />
+                <Navbar />
                 <div className="app-wrapper-content">
-
                     <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
                     <Route path='/dialogs/' render={() => <DialogsContainer />} />
                     <Route path='/news' render={() => <News />} />
@@ -28,7 +27,6 @@ const App = () => {
                     <Route path='/settings' render={() => <Settings />} />
                     <Route path='/users' render={() => <UsersContainer />} />
                     <Route path='/login' render={() => <Login />} />
-
                 </div>
             </div>
         </BrowserRouter>

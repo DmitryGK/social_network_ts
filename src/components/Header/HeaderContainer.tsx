@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { DataType, getAuthUserDataTC, setUserData } from "../../Redux/auth-reducer";
 import Header from "./Header";
 import React from 'react';
-import  { AppStateType } from "../../Redux/redux-store";
+import { AppStateType } from "../../Redux/redux-store";
 import { authAPI } from "../../api/api";
 
 
@@ -14,21 +14,16 @@ type MapStateToPropsType = {
     login: string
     email: string
 }
-
-
 type MapDispatchToPropsType = {
     getAuthUserDataTC: () => void
 }
-
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
 
 class HeaderContainer extends React.Component<PropsType, DataType> {
 
     componentDidMount() {
-       this.props.getAuthUserDataTC()
+        this.props.getAuthUserDataTC()
     }
-
-
     render() {
         return <Header {...this.props} />
     }

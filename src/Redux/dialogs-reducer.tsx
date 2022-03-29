@@ -4,7 +4,6 @@ export type MessagesDataType = {
     id: number
     message: string
 }
-
 export type DialogsDataType = {
     id: number
     name: string
@@ -49,8 +48,6 @@ const initialState = {
 }
 
 const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes) => {
-
-
     switch (action.type) {
         case "ADD-MESSAGE": {
             const newMessage: MessagesDataType = {
@@ -70,7 +67,6 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTy
         }
         default: return state
     }
-
 }
 
 export const addMessageActionCreator = (): AddMessageActionType => {

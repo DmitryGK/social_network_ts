@@ -7,10 +7,8 @@ export type DataType = {
     id: number
     email: string
     login: string
-    
+
 }
-
-
 export type AuthStateType = {
     data: DataType
     isAuth: boolean
@@ -24,13 +22,12 @@ type setUsersActionType = {
     type: 'SET_USER_DATA'
     data: DataType
 }
-
 const InitialState: AuthStateType = {
     data: {
         id: 1,
         email: '',
         login: 'fsfgsfg',
-        
+
     },
     isAuth: false,
     login: '',
@@ -50,19 +47,18 @@ const authReducer = (state: AuthStateType = InitialState, action: ActionType): A
                 ...state,
                 ...action.data,
                 isAuth: true
-
-                
             }
         default:
             return state
     }
 }
 
-export const setUserData = (id: number, email: string, login: string) => ({ type: SET_USER_DATA, data: { id, email, login } })
+export const setUserData = (id: number, email: string, login: string) => (
+    { type: SET_USER_DATA, data: { id, email, login } }
+)
 
 export const getAuthUserDataTC = () => (dispatch: DispatchType) => {
     authAPI.me().then((response: {
-                
         data:
         {
             data: {
@@ -83,6 +79,6 @@ export const getAuthUserDataTC = () => (dispatch: DispatchType) => {
             dispatch(setUserData(id, email, login))
         }
     })
-} 
+}
 
 export default authReducer

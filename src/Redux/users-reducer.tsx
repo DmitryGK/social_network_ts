@@ -20,14 +20,14 @@ export type InitialStateType = {
 }
 type UsersReducerActionType = FollowActionType |
     UnfollowActionType | SetUsersActionType |
-    SetCurrentPageActionType | SetTotalUserCountActionType | ToggleIsFetchingActionType | ToggleIsFollowingProgressActionType
+    SetCurrentPageActionType | SetTotalUserCountActionType |
+    ToggleIsFetchingActionType | ToggleIsFollowingProgressActionType
 
 type ToggleIsFollowingProgressActionType = {
     type: 'TOGGLE_IS_FOLLOWING_PROGRESS'
     followInformationIsLoading: boolean
     userId: number
 }
-
 type FollowActionType = {
     type: 'FOLLOW'
     userId: number
@@ -75,7 +75,7 @@ const initialState = {
     followingInProgress: []
 }
 
-console.log(initialState.isFetching)
+
 const usersReducer = (state: InitialStateType = initialState, action: UsersReducerActionType): InitialStateType => {
 
     switch (action.type) {
@@ -145,7 +145,7 @@ export const getUserThunkCreator = (currentPage: number, pageSize: number) => {
                 dispatch(toggleIsFetching(false))
             })
     }
-}  
+}
 
 export const followThunkCreator = (userId: number) => {
     return (dispatch: DispatchType) => {

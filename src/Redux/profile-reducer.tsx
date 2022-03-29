@@ -10,17 +10,14 @@ export type PostsDataType = {
     message: string
     likesCount: number
 }
-
 type UpdateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
 }
-
 type SetUserProfileActionType = {
     type: 'SET_USER_PROFILE'
     profile: ProfileType
 }
-
 type ActionsTypes = AddPostActionType | UpdateNewPostTextActionType | SetUserProfileActionType
 
 type ContactsType = {
@@ -37,7 +34,6 @@ type PhotosType = {
     small: string
     large: string
 }
-
 export type ProfileType = {
     userId: number
     lookingForAJob: boolean
@@ -46,8 +42,6 @@ export type ProfileType = {
     contacts: ContactsType
     photos: PhotosType
 }
-
-
 type InitialStateType = {
     postsData: Array<PostsDataType>
     newPostText: string
@@ -134,11 +128,11 @@ export const setUserProfile = (profile: ProfileType) => {
         type: 'SET_USER_PROFILE', profile
     }
 }
- 
+
 export const getUserProfileTC = (userId: number) => (dispatch: DispatchType) => {
-    
+
     userAPI.getProfile(userId).then(response => {
         dispatch(setUserProfile(response.data))
-    }) 
+    })
 }
 export default profileReducer

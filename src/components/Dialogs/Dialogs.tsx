@@ -13,13 +13,11 @@ export type MessagesDataType = {
     id: number
     message: string
 }
-
 export type DialogsPageType = {
     newMessageText: string
     dialogsData: Array<DialogsDataType>
     messagesData: Array<MessagesDataType>
 }
-
 type DialogsPropsType = {
     dialogsData: DialogsPageType
     isAuth: boolean
@@ -28,14 +26,12 @@ type DialogsPropsType = {
 }
 const Dialogs = (props: DialogsPropsType) => {
 
-
     const newMessageText = React.createRef<HTMLTextAreaElement>()
     const sendMessage = () => {
         if (newMessageText.current) {
             props.addMessageAction()
             newMessageText.current.value = ''
         }
-
     }
 
     const onMessageChange = () => {
@@ -45,8 +41,10 @@ const Dialogs = (props: DialogsPropsType) => {
         }
     }
 
-    const messagesElements = props.dialogsData.messagesData.map(message => <Message message={message.message} key={message.id} />)
-    const dialogsElements = props.dialogsData.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />)
+    const messagesElements = props.dialogsData.messagesData.map
+        (message => <Message message={message.message} key={message.id} />)
+    const dialogsElements = props.dialogsData.dialogsData.map
+        (dialog => <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />)
 
 
 
