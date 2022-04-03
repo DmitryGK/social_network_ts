@@ -4,7 +4,8 @@ import { AppStateType } from "../../Redux/redux-store";
 import React from "react";
 import { Users } from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import { userAPI } from "../../api/api";
+import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
 
 type MapStateToPropsType = {
     usersPage: Array<UserDataType>
@@ -42,7 +43,7 @@ class UsersContainer extends React.Component<UsersPropsType, UserDataType> {
 
 
     onPageChanged = (pageNumber: number) => {
-       this.props.getUserThunkCreator(pageNumber, this.props.pageSize)
+        this.props.getUserThunkCreator(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -81,12 +82,18 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export default connect(mapStateToProps, {
-    follow, unfollow, setUsers,
-     setCurrentPage, setTotalUsersCount,
-      toggleIsFetching, toggleFollowingProgress,
-      getUserThunkCreator, followThunkCreator, unfollowThunkCreator
-})(UsersContainer)
 
-
-
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {
+        follow, unfollow,
+        setUsers,
+        setCurrentPage,
+        setTotalUsersCount,
+        toggleIsFetching,
+        toggleFollowingProgress,
+        getUserThunkCreator,
+        followThunkCreator,
+        unfollowThunkCreator
+    }),
+    withAuthRedirect
+)(UsersContainer)

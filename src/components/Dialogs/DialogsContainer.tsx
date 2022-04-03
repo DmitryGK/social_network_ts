@@ -2,8 +2,9 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../.
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { AppStateType } from "../../Redux/redux-store";
-import { Dispatch } from "redux";
+import { compose, Dispatch } from "redux";
 import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
+import React from "react";
 
 
 type mapDispatchToPropsType = {
@@ -31,6 +32,8 @@ const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
 }
 
 
-const DialogsContainer = withAuthRedirect(connect(mapStateToProps, mapDispatchToProps)(Dialogs))
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect 
+)(Dialogs)
 
-export default DialogsContainer
