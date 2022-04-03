@@ -4,6 +4,7 @@ import React from "react";
 import { ProfileType } from "../../../Redux/profile-reducer";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from './../../../pictures/avatars/_Ninja-2-512.webp'
+import ProfileStatus from "./ProfileStatus";
 
 
 type ProfileInfoPropsType = {
@@ -17,14 +18,16 @@ const ProfileInfo = (props: ProfileInfoPropsType) => {
 
         return (
             <div>
-                <div><img className={p.image} src={pic} alt={pic} /></div>
+                {/* <div><img className={p.image} src={pic} alt={pic} /></div> */}
                 <div className={p.profileInfo}>
                     <div>
-                        <img src={(props.profile.photos.large !== null ? props.profile.photos.large : userPhoto) } className={p.ava} />
+                        <img src={(props.profile.photos.large !== null ? props.profile.photos.large : userPhoto)} className={p.ava} />
+                        < ProfileStatus status="code"/>
                     </div>
                     <div className={p.name}>
                         {props.profile.fullName}
                     </div>
+
                     <div className={p.description}>
                         <div>{props.profile.lookingForAJobDescription}</div>
                         <div>{props.profile.contacts.mainLink}</div>

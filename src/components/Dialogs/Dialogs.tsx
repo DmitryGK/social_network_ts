@@ -2,7 +2,7 @@ import React from 'react'
 import d from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import { Redirect } from 'react-router-dom';
+
 
 
 export type DialogsDataType = {
@@ -18,7 +18,7 @@ export type DialogsPageType = {
     dialogsData: Array<DialogsDataType>
     messagesData: Array<MessagesDataType>
 }
-type DialogsPropsType = {
+export type DialogsPropsType = {
     dialogsData: DialogsPageType
     isAuth: boolean
     updateNewMessageText: (newText: string) => void

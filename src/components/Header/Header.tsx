@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../../pictures/kisspng-royalty-free-logo-graphic-design-5b1ed0ea40c1c4.1858851715287462182653.png'
+import logo from '../../pictures/Group 2.png'
 import { DataType } from '../../Redux/auth-reducer'
 import h from './Header.module.css'
 

@@ -1,12 +1,13 @@
 .header {
     grid-area: h;
-    background-color: #8b8b8d;
+    background-image: url('./../../pictures/codeAva.avif');
+    background-position: center;
+    background-size: cover;
 }
 .header img {
     width: 45px;
     padding-left: 10px;
     padding-top: 6px;
-
 }
 
 .loginBlock {
