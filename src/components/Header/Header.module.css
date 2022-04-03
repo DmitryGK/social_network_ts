@@ -5,9 +5,9 @@
     background-size: cover;
 }
 .header img {
-    width: 45px;
-    padding-left: 10px;
-    padding-top: 6px;
+    width: 35px;
+    padding: 5px;
+    
 }
 
 .loginBlock {

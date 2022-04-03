@@ -1,4 +1,4 @@
-import { userAPI } from "../api/api"
+import { profileAPI, userAPI } from "../api/api"
 import { DispatchType } from "./redux-store"
 
 
@@ -131,7 +131,7 @@ export const setUserProfile = (profile: ProfileType) => {
 
 export const getUserProfileTC = (userId: number) => (dispatch: DispatchType) => {
 
-    userAPI.getProfile(userId).then(response => {
+    profileAPI.getProfile(userId).then(response => {
         dispatch(setUserProfile(response.data))
     })
 }
