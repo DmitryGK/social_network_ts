@@ -1,5 +1,5 @@
 import p from "./ProfileInfo.module.css";
-import pic from "../../../pictures/richard-horvath-RAZU_R66vUc-unsplash.jpg";
+import pic from "../../../pictures/pexels-photo-965345.jpeg";
 import React from "react";
 import { ProfileType } from "../../../Redux/profile-reducer";
 import Preloader from "../../common/Preloader/Preloader";
