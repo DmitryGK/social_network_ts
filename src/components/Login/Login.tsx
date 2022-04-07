@@ -29,16 +29,20 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
 
 }
 
-const LoginReduxForm = reduxForm({
+const LoginReduxForm = reduxForm<FormDataType>({
     form: 'login'
 })(LoginForm)
 
 const Login = () => {
 
+    const onSubmit = (formData: FormDataType) => {
+        console.log(formData)
+    }
+
     return (
         <div>
             <h1>Login</h1>
-            <LoginReduxForm />
+            <LoginReduxForm onSubmit={onSubmit}/>
         </div>
     )
 }
